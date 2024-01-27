@@ -1,0 +1,9 @@
+name: Simple Git Action Test
+on: push
+jobs:
+  printvalue: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: echo "Hello World!"
+    
