@@ -28,12 +28,12 @@ on:
         required: true
         default: "engineering"
         type: choice
-         options:
-          engineering: "Engineering"
-          marketing: "Marketing"
-          sales: "Sales"
-          support: "Support"
-          finance: "Finance"
+        options:
+          - engineering
+          - marketing
+          - sales
+          - support
+          - finance
   workflow_call:
     inputs:
       build_application_required:
