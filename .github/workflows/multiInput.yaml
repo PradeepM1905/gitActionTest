@@ -60,7 +60,7 @@ env:
   TEAM_B: ${{ inputs.team_b }}
   TEAM_C: ${{ inputs.team_c }}
   DEPARTMENT: ${{ inputs.department }}
-  TEAM_D: ${{ fromJson(inputs.additional_args).team_d}}
+  TEAM_D: ${{ fromJson(inputs.additional_teams).team_d}}
 jobs:
   print_teams:
     runs-on: ubuntu-latest
