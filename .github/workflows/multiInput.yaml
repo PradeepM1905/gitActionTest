@@ -9,17 +9,17 @@ on:
         default: true
         type: boolean
       team_a:
-        description: "Market: PT"
+        description: "Team: A"
         required: true
         default: true
         type: boolean
       team_b:
-        description: "Market: ES"
+        description: "Team: B"
         required: true
         default: true
         type: boolean
       team_c:
-        description: "Market: IT"
+        description: "Team: C"
         required: true
         default: true
         type: boolean
