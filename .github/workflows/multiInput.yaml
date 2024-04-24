@@ -34,6 +34,11 @@ on:
           - sales
           - support
           - finance
+      additional_teams:
+        description: JSON of additional options
+        type: string
+        default: '{}'
+        required: false
   workflow_call:
     inputs:
       build_application_required:
@@ -55,6 +60,7 @@ env:
   TEAM_B: ${{ inputs.team_b }}
   TEAM_C: ${{ inputs.team_c }}
   DEPARTMENT: ${{ inputs.department }}
+  TEAM_D: ${{ fromJson(inputs.additional_args).team_d}}
 jobs:
   print_teams:
     runs-on: ubuntu-latest
@@ -64,4 +70,5 @@ jobs:
           echo "Team A: $TEAM_A"
           echo "Team B: $TEAM_B"
           echo "Team C: $TEAM_C"
+          echo "Team D: $TEAM_D"
           echo "Department: $DEPARTMENT"
