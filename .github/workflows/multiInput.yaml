@@ -8,58 +8,16 @@ on:
         required: true
         default: true
         type: boolean
-      team_a:
-        description: "Team: A"
-        required: true
-        default: true
-        type: boolean
-      team_b:
-        description: "Team: B"
-        required: true
-        default: true
-        type: boolean
-      team_c:
-        description: "Team: C"
-        required: true
-        default: true
-        type: boolean
-      department:
-        description: "Select Department"
-        required: true
-        default: "engineering"
-        type: choice
-        options:
-          - engineering
-          - marketing
-          - sales
-          - support
-          - finance
       additional_teams:
         description: JSON of additional options
         type: string
         default: '{}'
-        required: false
-  workflow_call:
-    inputs:
-      build_application_required:
         required: true
-        default: true
-        type: boolean
-      team_a:
-        default: true
-        type: boolean
-      team_b:
-        default: true
-        type: boolean
-      team_c:
-        default: true
-        type: boolean
 
 env:
-  TEAM_A: ${{ inputs.team_a }}
-  TEAM_B: ${{ inputs.team_b }}
-  TEAM_C: ${{ inputs.team_c }}
-  DEPARTMENT: ${{ inputs.department }}
+  TEAM_A: ${{ fromJson(inputs.additional_teams).team_a}}
+  TEAM_B: ${{ fromJson(inputs.additional_teams).team_b}}
+  TEAM_C: ${{ fromJson(inputs.additional_teams).team_c}}
   TEAM_D: ${{ fromJson(inputs.additional_teams).team_d}}
 jobs:
   print_teams:
@@ -71,4 +29,3 @@ jobs:
           echo "Team B: $TEAM_B"
           echo "Team C: $TEAM_C"
           echo "Team D: $TEAM_D"
-          echo "Department: $DEPARTMENT"
